@@ -1,0 +1,29 @@
+create table tcl_table(
+name_ nvarchar2(15),
+id_ number,
+password_ number,
+symbol nvarchar2(10)
+);
+desc tcl_table;
+
+insert into tcl_table
+values('tcl1', 1, '121212', 'A');
+select*from tcl_table;
+
+rollback;
+
+insert into tcl_table
+values('tcl2', 2, '131313', 'B');
+
+commit;
+truncate table tcl_table;  // Here, command is used to delete all the rows from a table.
+
+insert into tcl_table
+values('tcl3', 3, '141414', 'C');
+insert into tcl_table
+values('tcl4', 4, '151515', 'D');
+
+delete from tcl_table where id_=3; // Here, command is used to delete specified rows.
+select*from tcl_table;
+
+         // Also, here delete operation is used together with WHERE operation. But, truncate doesn't this.
